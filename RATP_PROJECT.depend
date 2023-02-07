@@ -1,0 +1,67 @@
+# depslib dependency file v1.0
+1651426568 source:c:\users\brani\onedrive\bureau\master 1 isi\s8\c++ avancé\ratp_projectv2\main.cpp
+	"Projet.hpp"
+
+1651421741 c:\users\brani\onedrive\bureau\master 1 isi\s8\c++ avancé\ratp_projectv2\generic_station_parser_derivative.hpp
+	<fstream>
+	<vector>
+	<sstream>
+	<cstdlib>
+	<algorithm>
+	<set>
+	<map>
+	"Generic_mapper.hpp"
+	"Generic_connection_parser.hpp"
+
+1651421159 c:\users\brani\onedrive\bureau\master 1 isi\s8\c++ avancé\ratp_projectv2\generic_mapper.hpp
+	<vector>
+	<utility>
+	"Generic_connection_parser.hpp"
+
+1649694652 c:\users\brani\onedrive\bureau\master 1 isi\s8\c++ avancé\ratp_projectv2\generic_connection_parser.hpp
+	"Generic_station_parser.hpp"
+
+1649709011 c:\users\brani\onedrive\bureau\master 1 isi\s8\c++ avancé\ratp_projectv2\generic_station_parser.hpp
+	<string>
+	<iostream>
+	<unordered_map>
+	<vector>
+
+1651426360 source:c:\users\brani\onedrive\bureau\master 1 isi\s8\c++ avancé\ratp_projectv2\projet.cpp
+	"Projet.hpp"
+
+1651423883 c:\users\brani\onedrive\bureau\master 1 isi\s8\c++ avancé\ratp_projectv2\projet.hpp
+	<fstream>
+	<vector>
+	<sstream>
+	<cstdlib>
+	<algorithm>
+	"Generic_mapper.hpp"
+	"Generic_connection_parser.hpp"
+
+1651439033 source:c:\users\33695\downloads\ratp_projectv2\ratp_projectv2\main.cpp
+	"Projet.hpp"
+
+1651439033 c:\users\33695\downloads\ratp_projectv2\ratp_projectv2\projet.hpp
+	<fstream>
+	<vector>
+	<sstream>
+	<cstdlib>
+	<algorithm>
+	"Generic_mapper.hpp"
+	"Generic_connection_parser.hpp"
+
+1651439033 c:\users\33695\downloads\ratp_projectv2\ratp_projectv2\generic_mapper.hpp
+	<vector>
+	<utility>
+	"Generic_connection_parser.hpp"
+
+1651439033 c:\users\33695\downloads\ratp_projectv2\ratp_projectv2\generic_connection_parser.hpp
+	"Generic_station_parser.hpp"
+
+1651439033 c:\users\33695\downloads\ratp_projectv2\ratp_projectv2\generic_station_parser.hpp
+	<string>
+	<iostream>
+	<unordered_map>
+	<vector>
+
