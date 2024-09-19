@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <set>
 #include <map>
+#include <cstdint>  
 
 
 #include "Generic_mapper.hpp"
@@ -38,7 +39,7 @@ namespace travel {
         if (in.fail())
             std::cerr << "ERROR : Unable to read the file " << std::endl;
         else {
-            // On ne prent pas en compte la 1ère ligne
+            // On ne prent pas en compte la 1ï¿½re ligne
             std::string row; std::getline(in, row, '\n');
             travel::Station station;
             while (!in.eof()) {  //in.good()
@@ -68,7 +69,7 @@ namespace travel {
         if (in.fail())
             std::cerr << "ERROR : Unable to read the file " << std::endl;
         else {
-            // On ne prend pas en compte la 1ère ligne
+            // On ne prend pas en compte la 1ï¿½re ligne
             std::string row; std::getline(in, row,  '\n');
             while (!in.eof()) { // in.good()
                 std::getline(in, from_stop_id, ',');
@@ -106,8 +107,8 @@ namespace travel {
 
     std::vector<std::pair<uint64_t, uint64_t> > Generic_station_parser_derivative::compute_travel(uint64_t _start, uint64_t _end) {
 
-        /*  Cette variable sera utilisée pour initiaiser les distances des toutes les stations
-         *  par rapport à la station source
+        /*  Cette variable sera utilisï¿½e pour initiaiser les distances des toutes les stations
+         *  par rapport ï¿½ la station source
          */
         const uint64_t INF (10000000);
 
@@ -116,49 +117,49 @@ namespace travel {
          */
          uint64_t stat_courante(_start);
 
-        /*  cette variable est "true" si la station final est trouvée si non false
+        /*  cette variable est "true" si la station final est trouvï¿½e si non false
          */
         bool trouvee = false;
 
-        /*  De préférance est de travailler avec une référence constante de "connections_hashmap" et "station_hashmap"
-         *  pour eviter de modifier leurs comptenus. pour ce fair on va utiliser la méthode get_connection_hashmap() et get_station_hashmap()
+        /*  De prï¿½fï¿½rance est de travailler avec une rï¿½fï¿½rence constante de "connections_hashmap" et "station_hashmap"
+         *  pour eviter de modifier leurs comptenus. pour ce fair on va utiliser la mï¿½thode get_connection_hashmap() et get_station_hashmap()
          */
         std::unordered_map<uint64_t,std::unordered_map<uint64_t,uint64_t> > connections_hashmap = get_connections_hashmap();
         std::unordered_map<uint64_t, Station> stations_hashmap = get_stations_hashmap();
 
-        /*  Un vecteur de paires pour sauvgarder les station à emprintées pour allée
-         *  d'une station de départ à une station d'arrivée
+        /*  Un vecteur de paires pour sauvgarder les station ï¿½ emprintï¿½es pour allï¿½e
+         *  d'une station de dï¿½part ï¿½ une station d'arrivï¿½e
          */
         std::vector<std::pair<uint64_t, uint64_t>> stations_empruntees;
 
         /*  "unordred_map" contenant les identidiants ainsi que les distances de chaque
-         *  station par rapport à la station de départ.
+         *  station par rapport ï¿½ la station de dï¿½part.
          *  key : idenstifiant de la station
-         *  val : distance de la station par rapport a la station de départ
+         *  val : distance de la station par rapport a la station de dï¿½part
          */
         std::unordered_map<uint64_t, uint64_t> dist;
 
-        /*  Initialisation distances  de la station de depart par rapport à elle meme à 0
-         *  Initialisation des distances la station de depart par rapport à toutes les stations à INF
+        /*  Initialisation distances  de la station de depart par rapport ï¿½ elle meme ï¿½ 0
+         *  Initialisation des distances la station de depart par rapport ï¿½ toutes les stations ï¿½ INF
          */
         for (auto const&station : stations_hashmap)
             dist[station.first] = INF;
         dist[_start] = 0;
 
-        /*  Un "unordred_map" pour stocker toutes les stations visitée lors des iteration de
+        /*  Un "unordred_map" pour stocker toutes les stations visitï¿½e lors des iteration de
          *  l'algorithme de djikstra
          */
         std::unordered_map<uint64_t, uint64_t> stations_visitees;
 
-        /*  Dans un vetor<int> on sauvgarde les identifients des stations non visitées
+        /*  Dans un vetor<int> on sauvgarde les identifients des stations non visitï¿½es
          *  ainsi que leur distance par defaut le vector contien toutes les sations et leur distance
-         *  par rapport à la station de départ
+         *  par rapport ï¿½ la station de dï¿½part
          */
         std::vector<uint64_t> stations_non_visitees;
         for(auto const&station : stations_hashmap)
             stations_non_visitees.emplace_back(station.first);
 
-    /*  Cette boucle cherche le la station final et stock toute les station visitées
+    /*  Cette boucle cherche le la station final et stock toute les station visitï¿½es
      *  dans "un unordred_map"
      */
     while(stations_non_visitees.size()){
@@ -167,7 +168,7 @@ namespace travel {
         for (auto const& station : stations_non_visitees)
             dist_id.emplace_back(std::make_pair(dist[station], station));
 
-        /*  trier le vecteir dans l'ordre croissant pour récuperer facilement la
+        /*  trier le vecteir dans l'ordre croissant pour rï¿½cuperer facilement la
          *  station la plus proche
          */
         std::sort(dist_id.begin(), dist_id.end());
@@ -179,13 +180,13 @@ namespace travel {
             break;
         }
 
-        /*  Supprimer la station récuperée dans le vecreur stations_non_visitees
+        /*  Supprimer la station rï¿½cuperï¿½e dans le vecreur stations_non_visitees
          */
         auto it = std::find(stations_non_visitees.begin(), stations_non_visitees.end(), stat_courante);
         stations_non_visitees.erase(it);
 
-        /*  Stocker toutes les station visitées par l'lgorithme de djikstra, pour au final
-         * recuperer le plus court chemin à emprinter
+        /*  Stocker toutes les station visitï¿½es par l'lgorithme de djikstra, pour au final
+         * recuperer le plus court chemin ï¿½ emprinter
          */
         for (auto const &station : connections_hashmap[stat_courante]){
             if (dist[station.first] > (dist[stat_courante] + station.second)){
@@ -196,8 +197,8 @@ namespace travel {
     }
 
 
-    /*  Cette boucle nous permet de récupérer toutes les stations à emprinté pour
-     *  pour arriver enfin à la station finale (plus court chemin)
+    /*  Cette boucle nous permet de rï¿½cupï¿½rer toutes les stations ï¿½ emprintï¿½ pour
+     *  pour arriver enfin ï¿½ la station finale (plus court chemin)
      */
     stat_courante = _end;
     while(stat_courante != _start) {
@@ -237,7 +238,7 @@ namespace travel {
                 Station station(stations_hashmap[station_id]);
                 afficher = station1.line_name != station.line_name;
             }
-            if(afficher or (i==path.size()-2) or !i) {
+            if(afficher || (i==path.size()-2) || !i) {
                 std::cout << "Marcher jusqu'a " << station1.name << " ligne " << station1.line_name << " (" << path[i].second << " sec)" << std::endl;
                 std::cout << "Prendre la ligne " << station1.line_name << " " << station1.address << std::endl;
                 // std::cout << "De " << station1.name << " a " << station1.name <<" (" << path[i+1].second << " sec)" << std::endl;
@@ -268,7 +269,7 @@ namespace travel {
                 end_id = station.first;
         }
 
-        if (!start_id or !end_id)
+        if (!start_id || !end_id)
             throw "Stations introuvables";
         return compute_travel(start_id, end_id);
     }
@@ -285,7 +286,7 @@ namespace travel {
                 end_id = station.first;
         }
 
-        if (!start_id or !end_id)
+        if (!start_id || !end_id)
             throw "Stations introuvables";
 
         return compute_and_display_travel(start_id, end_id);

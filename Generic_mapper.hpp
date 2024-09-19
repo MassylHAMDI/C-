@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <utility>
-
+#include <cstdint>  
 #include "Generic_connection_parser.hpp"
 
 namespace travel {

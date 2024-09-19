@@ -6,11 +6,11 @@ int main()
     // Cree un instance de type projet
     Projet generic;
 
-    // Charger les données des stations et des connctions
-    generic.read_stations("s.csv");
-    generic.read_connections("c.csv");
+    // Charger les donnï¿½es des stations et des connctions
+    generic.read_stations("data/s.csv");
+    generic.read_connections("data/c.csv");
 
-    // Demander à l'utlisateur de saisir les deux station de départ et d'arriver
+    // Demander ï¿½ l'utlisateur de saisir les deux station de dï¿½part et d'arriver
     std::string _start(""), _end("");
     do{
         std::cout << "Saisisez le nom de la station de depart : "; std::cin >> _start;

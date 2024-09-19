@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Generic_station_parser.hpp"
+#include <cstdint>  
 
 namespace travel {
     class Generic_connection_parser : public Generic_station_parser {
