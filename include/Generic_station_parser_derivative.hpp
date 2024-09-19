@@ -1,6 +1,38 @@
-#include "../include/Projet.hpp"
+#pragma once
 
-void Projet::read_stations(const std::string& _filename) {
+#include <fstream>
+#include <vector>
+#include <sstream>
+#include <cstdlib>
+#include <algorithm>
+#include <set>
+#include <map>
+#include <cstdint>  
+
+
+#include "Generic_mapper.hpp"
+#include "Generic_connection_parser.hpp"
+using namespace travel;
+
+
+
+namespace travel {
+
+    class Generic_station_parser_derivative : public Generic_mapper {
+    public:
+        std::vector<std::pair<uint64_t, uint64_t>> compute_travel(uint64_t _start, uint64_t _end) override;
+        std::vector<std::pair<uint64_t, uint64_t>> compute_and_display_travel(uint64_t _start, uint64_t _end) override;
+
+        std::vector<std::pair<uint64_t, uint64_t>> compute_travel(const std::string&, const std::string&) override;
+        std::vector<std::pair<uint64_t, uint64_t>> compute_and_display_travel(const std::string& _start, const std::string& _end) override;
+
+        void read_connections(const std::string& _filename) override;
+        void read_stations(const std::string& _filename) override;
+
+    };
+
+
+    void Generic_station_parser_derivative::read_stations(const std::string& _filename) {
         std::string name_file(_filename);
         std::ifstream in(name_file.c_str());
 
@@ -19,14 +51,14 @@ void Projet::read_stations(const std::string& _filename) {
             }
         } in.close();
 
-//        /// Affichage des -- station--
-//        for(auto const& it : this->stations_hashmap)
-//            std::cout << it.first << " : " << it.second << std::endl;
+        /// Affichage des -- station--
+        for(auto const& it : this->stations_hashmap)
+            std::cout << it.first << " : " << it.second << std::endl;
     }
 
 
 
-    void Projet::read_connections(const std::string& _filename) {
+    void Generic_station_parser_derivative::read_connections(const std::string& _filename) {
         std::string name_file(_filename);
         std::ifstream in(name_file.c_str());
 
@@ -60,20 +92,20 @@ void Projet::read_stations(const std::string& _filename) {
             }
         } in.close();
 
-//          /// Affichage des -- affichage des conections --
-//        for (auto IT : this->connections_hashmap)
-//        {
-//            std::cout << "ID1 : " << IT.first << ", ";
-//            for (auto ITB : IT.second)
-//            {
-//                std::cout << "ID2 : " << ITB.first << ", TIME : " << ITB.second << std::endl;
-//            }
-//        }
+          /// Affichage des -- affichage des conections --
+        for (auto IT : this->connections_hashmap)
+        {
+            std::cout << "ID1 : " << IT.first << ", ";
+            for (auto ITB : IT.second)
+            {
+                std::cout << "ID2 : " << ITB.first << ", TIME : " << ITB.second << std::endl;
+            }
+        }
     }
 
 
 
-    std::vector<std::pair<uint64_t, uint64_t> > Projet::compute_travel(uint64_t _start, uint64_t _end) {
+    std::vector<std::pair<uint64_t, uint64_t> > Generic_station_parser_derivative::compute_travel(uint64_t _start, uint64_t _end) {
 
         /*  Cette variable sera utilis�e pour initiaiser les distances des toutes les stations
          *  par rapport � la station source
@@ -179,7 +211,7 @@ void Projet::read_stations(const std::string& _filename) {
 
 
 
-    std::vector<std::pair<uint64_t,uint64_t> > Projet::compute_and_display_travel(uint64_t _start, uint64_t _end){
+    std::vector<std::pair<uint64_t,uint64_t> > Generic_station_parser_derivative::compute_and_display_travel(uint64_t _start, uint64_t _end){
 
         std::vector<std::pair<uint64_t,uint64_t> > path = compute_travel(_start, _end);
         std::unordered_map<uint64_t, Station> stations_hashmap = get_stations_hashmap();
@@ -225,7 +257,7 @@ void Projet::read_stations(const std::string& _filename) {
     }
 
 
-    std::vector<std::pair<uint64_t, uint64_t> > Projet::compute_travel(const std::string& _start, const std::string& _end) {
+    std::vector<std::pair<uint64_t, uint64_t> > Generic_station_parser_derivative::compute_travel(const std::string& _start, const std::string& _end) {
         // deux variable pour recuperer les identifiants des stations d'etrers
         uint64_t start_id(0), end_id(0);
 
@@ -238,12 +270,12 @@ void Projet::read_stations(const std::string& _filename) {
         }
 
         if (!start_id || !end_id)
-            throw std::string("Stations introuvables");
+            throw "Stations introuvables";
         return compute_travel(start_id, end_id);
     }
 
 
-    std::vector<std::pair<uint64_t, uint64_t> > Projet::compute_and_display_travel(const std::string& _start, const std::string& _end) {
+    std::vector<std::pair<uint64_t, uint64_t> > Generic_station_parser_derivative::compute_and_display_travel(const std::string& _start, const std::string& _end) {
         uint64_t start_id(0), end_id(0);
 
         for(auto station : this->stations_hashmap){
@@ -255,7 +287,8 @@ void Projet::read_stations(const std::string& _filename) {
         }
 
         if (!start_id || !end_id)
-            throw std::string("Stations introuvables");
+            throw "Stations introuvables";
 
         return compute_and_display_travel(start_id, end_id);
     }
+}
