@@ -336,8 +336,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\massy\Documents\Ratp-Projet\Projet.cpp" />
-    <ClCompile Include="C:\Users\massy\Documents\Ratp-Projet\main.cpp" />
+    <ClCompile Include="C:\Users\massy\Documents\Ratp-Projet\src\Projet.cpp" />
+    <ClCompile Include="C:\Users\massy\Documents\Ratp-Projet\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\massy\Documents\Ratp-Projet\build\ZERO_CHECK.vcxproj">

@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 # Find all cpp files in the current directory
-file(GLOB SOURCES "*.cpp")
+file(GLOB SOURCES "src/*.cpp")
 
 # Create the executable
 add_executable(${PROJECT_NAME} ${SOURCES})
