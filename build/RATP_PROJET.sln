@@ -10,10 +10,16 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RATP_PROJET", "RATP_PROJET.vcxproj", "{2017FFCF-E03B-3B16-B11B-903DDAF0EF6B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4F789831-5B63-371B-86C9-652710AE1DAE} = {4F789831-5B63-371B-86C9-652710AE1DAE}
+		{AADFFFED-202E-3AFF-AC50-D0E915C2388C} = {AADFFFED-202E-3AFF-AC50-D0E915C2388C}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{4F789831-5B63-371B-86C9-652710AE1DAE}"
 	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "check_data_folder", "check_data_folder.vcxproj", "{AADFFFED-202E-3AFF-AC50-D0E915C2388C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4F789831-5B63-371B-86C9-652710AE1DAE} = {4F789831-5B63-371B-86C9-652710AE1DAE}
 	EndProjectSection
 EndProject
 Global
@@ -44,6 +50,14 @@ Global
 		{4F789831-5B63-371B-86C9-652710AE1DAE}.MinSizeRel|x64.Build.0 = MinSizeRel|x64
 		{4F789831-5B63-371B-86C9-652710AE1DAE}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
 		{4F789831-5B63-371B-86C9-652710AE1DAE}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
+		{AADFFFED-202E-3AFF-AC50-D0E915C2388C}.Debug|x64.ActiveCfg = Debug|x64
+		{AADFFFED-202E-3AFF-AC50-D0E915C2388C}.Debug|x64.Build.0 = Debug|x64
+		{AADFFFED-202E-3AFF-AC50-D0E915C2388C}.Release|x64.ActiveCfg = Release|x64
+		{AADFFFED-202E-3AFF-AC50-D0E915C2388C}.Release|x64.Build.0 = Release|x64
+		{AADFFFED-202E-3AFF-AC50-D0E915C2388C}.MinSizeRel|x64.ActiveCfg = MinSizeRel|x64
+		{AADFFFED-202E-3AFF-AC50-D0E915C2388C}.MinSizeRel|x64.Build.0 = MinSizeRel|x64
+		{AADFFFED-202E-3AFF-AC50-D0E915C2388C}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
+		{AADFFFED-202E-3AFF-AC50-D0E915C2388C}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D5D44C26-55AB-36A3-B1B9-6930C27F054B}

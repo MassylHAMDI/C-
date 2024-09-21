@@ -5,7 +5,7 @@ void Projet::read_stations(const std::string& _filename) {
         std::ifstream in(name_file.c_str());
 
         if (in.fail())
-            std::cerr << "ERROR : Unable to read the file " << std::endl;
+            std::cerr << "ERROR : Unable to read the file " <<std::endl;
         else {
             // On ne prent pas en compte la 1�re ligne
             std::string row; std::getline(in, row, '\n');
