@@ -2,6 +2,9 @@
 
 ## Description
 Ce projet implémente un système de navigation pour le réseau du métro parisien. Il permet aux utilisateurs de trouver le chemin optimal entre deux stations, en prenant en compte les connexions et les temps de transfert.
+## Démonstration
+Une vidéo de démonstration du projet:
+https://github.com/user-attachments/assets/2fd1c7ee-cafd-435e-87be-44ebb864ddb9
 
 ## Fonctionnalités
 - Chargement des données des stations et des connexions à partir de fichiers CSV
