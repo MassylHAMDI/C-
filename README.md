@@ -43,8 +43,7 @@ https://github.com/user-attachments/assets/2fd1c7ee-cafd-435e-87be-44ebb864ddb9
 Lancez l'exécutable généré. Dans l'interface graphique :
 1. Entrez le nom de la station de départ
 2. Entrez le nom de la station d'arrivée
-3. Cliquez sur "Trouver le chemin"
-4. Le résultat s'affichera, montrant le trajet optimal
+3. Le résultat s'affichera, montrant le trajet optimal
 
 ## Structure du Projet
 - `src/` : Contient les fichiers source (.cpp)
